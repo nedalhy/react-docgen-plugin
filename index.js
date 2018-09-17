@@ -94,7 +94,7 @@ ReactDocGenPlugin.prototype.apply = function (compiler) {
 
     files.forEach((file) => {
       // Read the original asset to generate documentation for (it's probably cached)
-      this.inputFileSystem.readFile(file, function (err, componentContent) {
+      compiler.inputFileSystem.readFile(file, function (err, componentContent) {
         try {
           loaded[file] = reactDocgen.parse(componentContent);
           loaded[file].componentName = path.basename(file, path.extname(file));
